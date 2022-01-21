@@ -1,0 +1,35 @@
+# pip3 install -r requirements.txt
+
+# Pytorch
+torch
+torchvision
+albumentations
+firebase-admin
+grpcio
+pytorch_lightning
+torchnet
+
+# Base
+numpy
+opencv-python
+pillow
+tqdm
+requests
+
+# Plotting
+pandas
+matplotlib
+seaborn
+visdom
+fire
+ipdb
+
+# Development environment
+jupyterlab
+
+""" M1 사용시
+export GRPC_PYTHON_BUILD_SYSTEM_OPENSSL=1
+export GRPC_PYTHON_BUILD_SYSTEM_ZLIB=1
+pip3 install firebase-admin
+pip3 install grpcio
+"""
