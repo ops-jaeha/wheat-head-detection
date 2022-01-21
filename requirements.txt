@@ -3,9 +3,7 @@
 # Pytorch
 torch
 torchvision
-albumentations
-firebase-admin
-grpcio
+albumentations==0.4.6
 pytorch_lightning
 torchnet
 
