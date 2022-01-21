@@ -48,14 +48,14 @@ class FasterRCNN(LightningModule):
         pred_boxes = self.forward(img)
 
         self.val_loss = torch.mean(
-            torch.stack([self.accuracy(b, pb["boxes"], iou_threshold=0.5) for b, pb in zip(boxes, pred_boxes)]))
+            torch.stack([self.accuracy(b, pb["boxes"], iou_threshold=0.7) for b, pb in zip(boxes, pred_boxes)]))
         return self.val_loss
 
     def test_step(self, batch, batch_idx):
         img, boxes, metadata = batch
         pred_boxes = self.forward(img)  # in validation, faster rcnn return the boxes
         self.test_loss = torch.mean(
-            torch.stack([self.accuracy(b, pb["boxes"], iou_threshold=0.5) for b, pb in zip(boxes, pred_boxes)]))
+            torch.stack([self.accuracy(b, pb["boxes"], iou_threshold=0.7) for b, pb in zip(boxes, pred_boxes)]))
         return self.test_loss
 
     def accuracy(self, src_boxes, pred_boxes, iou_threshold=1.):
