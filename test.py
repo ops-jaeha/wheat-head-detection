@@ -6,9 +6,9 @@ import pandas as pd
 import torch
 from torch.utils.data import Dataset
 # Import Python File
-from transform import test_transform
-from dataset import WheatDatasetPredict
-from parameter import ROOT_DIR, DATA_DIR
+from Faster_RCNN.transform import test_transform
+from Faster_RCNN.dataset import WheatDatasetPredict
+from Faster_RCNN.parameter import ROOT_DIR, DATA_DIR
 
 
 detector = torch.load(f"{ROOT_DIR}/model/Faster_RCNN.pth")
@@ -42,3 +42,7 @@ def test():
 
     results = pd.DataFrame(results, columns=["image_name", "PredString", "domain"])
     results.to_csv(f"{DATA_DIR}/submission_faster_rcnn.csv")
+
+
+if __name__ == '__main__':
+    test()

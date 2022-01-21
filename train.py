@@ -12,7 +12,7 @@ from Faster_RCNN.model.faster_rcnn import FasterRCNN
 
 # Pytorch import
 from pytorch_lightning import Trainer
-from Faster_RCNN.test import test
+
 
 def train():
     dataset = WheatDataset(transform=train_transform)
@@ -37,4 +37,3 @@ def train():
 if __name__ == "__main__":
     model = train()
     torch.save(model, f"{os.getcwd() + '/models/Faster_RCNN.pth'}")
-    test()

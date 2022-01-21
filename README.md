@@ -27,3 +27,13 @@ $ cd wheat-head-detection
 $ python3 train.py
 ```
 </details>
+
+<details open>
+<summary>Test</summary>
+
+Run this commend.
+```
+$ cd wheat-head-detection
+$ python3 test.py
+```
+</details>
