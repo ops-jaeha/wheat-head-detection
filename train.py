@@ -27,7 +27,7 @@ def train():
     detector = FasterRCNN(n_classes=2)
 
     # run learning rate finder, results override hparams.learning_rate
-    trainer = Trainer(gpus=1, progress_bar_refresh_rate=1, max_epochs=1, deterministic=False)
+    trainer = Trainer(gpus=1, progress_bar_refresh_rate=1, max_epochs=15, deterministic=False)
 
     # call tune to find the lr
     # trainer.tune(classifier,train_dataloader,val_dataloader) # we already did it once = 1e-4
