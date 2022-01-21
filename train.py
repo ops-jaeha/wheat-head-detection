@@ -9,6 +9,7 @@ from torch.utils.data import Dataset
 from Faster_RCNN.transform import train_transform
 from Faster_RCNN.dataset import WheatDataset, collate_fn
 from Faster_RCNN.model.faster_rcnn import FasterRCNN
+from Faster_RCNN.parameter import ROOT_DIR
 
 # Pytorch import
 from pytorch_lightning import Trainer
@@ -36,4 +37,4 @@ def train():
 
 if __name__ == "__main__":
     model = train()
-    torch.save(model, f"{os.getcwd() + '/models/Faster_RCNN.pth'}")
+    torch.save(model, f"{ROOT_DIR}/models/Faster_RCNN.pth")
