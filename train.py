@@ -17,7 +17,7 @@ from pytorch_lightning import Trainer
 
 def train():
     dataset = WheatDataset(transform=train_transform)
-    train_size = int(len(dataset) * 0.8)
+    train_size = int(len(dataset) * 0.9)
     val_size = len(dataset)-train_size
 
     train_set, val_set = torch.utils.data.random_split(dataset, [train_size, val_size])
@@ -27,7 +27,7 @@ def train():
     detector = FasterRCNN(n_classes=2)
 
     # run learning rate finder, results override hparams.learning_rate
-    trainer = Trainer(gpus=1, progress_bar_refresh_rate=1, max_epochs=15, deterministic=False)
+    trainer = Trainer(gpus=1, progress_bar_refresh_rate=1, max_epochs=30, deterministic=False)
 
     # call tune to find the lr
     # trainer.tune(classifier,train_dataloader,val_dataloader) # we already did it once = 1e-4
