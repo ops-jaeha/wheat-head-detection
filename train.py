@@ -21,8 +21,8 @@ def train():
     val_size = len(dataset)-train_size
 
     train_set, val_set = torch.utils.data.random_split(dataset, [train_size, val_size])
-    train_dataloader = torch.utils.data.DataLoader(train_set, batch_size=4, shuffle=False, collate_fn=collate_fn)
-    val_dataloader = torch.utils.data.DataLoader(val_set, batch_size=4, shuffle=False, collate_fn=collate_fn)
+    train_dataloader = torch.utils.data.DataLoader(train_set, batch_size=1, shuffle=False, collate_fn=collate_fn)
+    val_dataloader = torch.utils.data.DataLoader(val_set, batch_size=1, shuffle=False, collate_fn=collate_fn)
 
     detector = FasterRCNN(n_classes=2)
 
