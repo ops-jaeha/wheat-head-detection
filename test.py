@@ -8,10 +8,10 @@ from torch.utils.data import Dataset
 # Import Python File
 from Faster_RCNN.transform import test_transform
 from Faster_RCNN.dataset import WheatDatasetPredict
-from Faster_RCNN.parameter import ROOT_DIR, DATA_DIR
+from Faster_RCNN.parameter import DRIVE_DIR, DATA_DIR
 
 
-detector = torch.load(f"{ROOT_DIR}/model/Faster_RCNN.pth")
+detector = torch.load(f"{DRIVE_DIR}/model/Faster_RCNN.pth")
 detector.freeze()
 test_dataset = WheatDatasetPredict(transform=test_transform)
 test_dataloader = torch.utils.data.DataLoader(test_dataset, batch_size=1, shuffle=False)
@@ -41,7 +41,7 @@ def test():
             results.append([img_name,PredString,domain.item()])
 
     results = pd.DataFrame(results, columns=["image_name", "PredString", "domain"])
-    results.to_csv(f"{DATA_DIR}/submission_faster_rcnn.csv")
+    results.to_csv(f"{DRIVE_DIR}/model/submission_faster_rcnn.csv")
 
 
 if __name__ == '__main__':

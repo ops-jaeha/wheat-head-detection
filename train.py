@@ -9,11 +9,13 @@ from torch.utils.data import Dataset
 from Faster_RCNN.transform import train_transform
 from Faster_RCNN.dataset import WheatDataset, collate_fn
 from Faster_RCNN.model.faster_rcnn import FasterRCNN
-from Faster_RCNN.parameter import ROOT_DIR
+from Faster_RCNN.parameter import DRIVE_DIR
 
 # Pytorch import
 from pytorch_lightning import Trainer
 
+EPOCH = 20
+PATH = f"{DRIVE_DIR}/model/Faster_RCNN.pth"
 
 def train():
     dataset = WheatDataset(transform=train_transform)
@@ -33,8 +35,12 @@ def train():
     # trainer.tune(classifier,train_dataloader,val_dataloader) # we already did it once = 1e-4
     trainer.fit(detector, train_dataloader, val_dataloader)
 
-    return detector
+    torch.save({
+        'epoch': EPOCH,
+        'model_state_dict': detector.state_dict(),
+        'optimizer_state_dict': FasterRCNN.optimizer.state_dict(),
+        'loss': FasterRCNN.LOSS,
+    }, PATH)
 
 if __name__ == "__main__":
-    model = train()
-    torch.save(model, f"{ROOT_DIR}/models/Faster_RCNN.pth")
+    train()
