@@ -34,7 +34,7 @@ def train():
     # call tune to find the lr
     # trainer.tune(classifier,train_dataloader,val_dataloader) # we already did it once = 1e-4
     trainer.fit(detector, train_dataloader, val_dataloader)
-
+    trainer.save_checkpoint(filepath=f'{DRIVE_DIR}/model/Faster_RCNN_Checkpoint.pth')
     torch.save({
         'epoch': EPOCH,
         'model_state_dict': detector.state_dict(),
