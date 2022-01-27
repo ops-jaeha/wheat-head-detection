@@ -13,6 +13,7 @@ from Faster_RCNN.parameter import DRIVE_DIR
 
 # Pytorch import
 from pytorch_lightning import Trainer
+from pytorch_lightning.callbacks import ModelCheckpoint
 
 EPOCH = 20
 PATH = f"{DRIVE_DIR}/model/Faster_RCNN.pth"
@@ -28,8 +29,9 @@ def train():
 
     detector = FasterRCNN(n_classes=2)
 
+    checkpoint_callback = ModelCheckpoint(monitor="val_loss")
     # run learning rate finder, results override hparams.learning_rate
-    trainer = Trainer(gpus=1, progress_bar_refresh_rate=1, max_epochs=20, deterministic=False)
+    trainer = Trainer(callbacks=[checkpoint_callback], gpus=1, progress_bar_refresh_rate=1, max_epochs=20, deterministic=False, default_root_dir=f'{DRIVE_DIR}/model')
 
     # call tune to find the lr
     # trainer.tune(classifier,train_dataloader,val_dataloader) # we already did it once = 1e-4
