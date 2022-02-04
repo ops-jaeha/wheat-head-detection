@@ -1,11 +1,9 @@
-/Faster_RCNN/data/test/
-/Faster_RCNN/data/train/
-/Faster_RCNN/data/submission.csv
-/Faster_RCNN/data/train.csv
 .DS_Store
 .idea
+wheat_data.zip
 /Faster_RCNN/.DS_Store
 /Faster_RCNN/.idea
+/Faster_RCNN/data
 /Faster_RCNN/library.py
-/Faster_RCNN/data/wheat_data.zip
 /Faster_RCNN/__pycache__
+/lightning_logs/

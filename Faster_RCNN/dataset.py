@@ -97,9 +97,8 @@ class WheatDatasetPredict(Dataset):
         Args:
              transform (callable, optional): Optional transform to be applied on a sample.
         """
-
-        self.root_dir = Path(ROOT_DIR)
-        annotations = pd.read_csv(DATA_DIR + '/submission.csv')
+        self.root_dir = Path(f'{ROOT_DIR}/Faster_RCNN/data/test')
+        annotations = pd.read_csv(f'{DATA_DIR}/submission.csv')
 
         self.image_list = annotations["image_name"].values
         self.domain_list = annotations["domain"].values

@@ -1,4 +1,4 @@
-# peach-wheat-detection
+# wheat-head-detection
 AIcrowd의 [Glabal WHEAT CHALLENGE 2021](https://www.aicrowd.com/challenges/global-wheat-challenge-2021) 의 Wheat head dectection 문제입니다.  
 기본 제공하는 Dataset을 이용하였고 [여기](https://www.aicrowd.com/challenges/global-wheat-challenge-2021/dataset_files) 를 누르시면 다운 받으실 수 있습니다. 
 

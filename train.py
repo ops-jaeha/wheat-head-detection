@@ -1,6 +1,3 @@
-# Import Library
-import os
-
 # Torch imports
 import torch
 from torch.utils.data import Dataset
@@ -16,7 +13,7 @@ from pytorch_lightning import Trainer
 from pytorch_lightning.callbacks import ModelCheckpoint
 
 EPOCH = 50
-PATH = f"{ROOT_DIR}/models/Faster_RCNN.pth"
+PATH = f"{ROOT_DIR}/result/Faster_RCNN.pth"
 
 def train():
     dataset = WheatDataset(transform=train_transform)
@@ -36,7 +33,7 @@ def train():
     # call tune to find the lr
     # trainer.tune(classifier,train_dataloader,val_dataloader) # we already did it once = 1e-4
     trainer.fit(detector, train_dataloader, val_dataloader)
-    trainer.save_checkpoint(filepath=f'{ROOT_DIR}/models/Faster_RCNN_Checkpoint.pth')
+    trainer.save_checkpoint(filepath=f'{ROOT_DIR}/result/Faster_RCNN_Checkpoint.pth')
     torch.save(detector, PATH)
 
 if __name__ == "__main__":
